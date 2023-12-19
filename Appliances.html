@@ -1,0 +1,112 @@
+<!-- في ملف Appliances.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنتجات</title>
+    <link rel="stylesheet" href="attached/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>مرحباً بكم في موقعنا</h1>
+
+      <table>
+        <!-- جدول عرض المنتجات -->
+        <!-- ... (كود المنتجات هنا) -->
+      </table>
+
+      <!-- جدول عرض منتجات السلة -->
+      <div id="cart">
+        <h2>سلة التسوق</h2>
+        <table id="cart-table">
+          <thead>
+            <tr>
+              <th>اسم المنتج</th>
+              <th>السعر</th>
+              <th>الكمية</th>
+              <th>السعر الإجمالي</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+            <!-- هنا سيتم إضافة المنتجات المحددة في السلة -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">السعر الإجمالي:</td>
+              <td id="total-cell" colspan="2">0.00</td>
+            </tr>
+            <tr>
+              <td colspan="2">الضريبة (5%):</td>
+              <td id="tax-cell" colspan="2">0.00</td>
+            </tr>
+            <tr>
+              <td colspan="2">الإجمالي الكامل:</td>
+              <td id="grand-total-cell" colspan="2">0.00</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div>
+          <button id="continue-button" onclick="showOrderForm()">متابعة</button>
+          <button id="cancel-button">إلغاء</button>
+        </div>
+      </div>
+
+      <!-- نموذج طلب -->
+      <div id="order-form" style="display: none">
+        <h2>نموذج الطلب</h2>
+        <form id="order-form">
+          <label for="fullname">الإسم الكامل:</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            pattern="[ء-ي\s]+"
+            required
+          />
+
+          <label for="national-id">الرقم الوطني:</label>
+          <input
+            type="text"
+            id="national-id"
+            name="national-id"
+            pattern="^(01[0-4])\d{8}$"
+            required
+          />
+
+          <label for="birthdate">تاريخ الولادة (dd-mm-yyyy):</label>
+          <input
+            type="text"
+            id="birthdate"
+            name="birthdate"
+            pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$"
+          />
+
+          <label for="mobile">رقم الموبايل (09xxxxxxxx):</label>
+          <input type="tel" id="mobile" name="mobile" pattern="^09\d{8}$" />
+
+          <label for="email">الإيميل:</label>
+          <input type="email" id="email" name="email" />
+
+          <div id="captcha-container"></div>
+          <button id="refresh-captcha">تحديث Captcha</button>
+
+          <button type="button" id="purchase-button" onclick="submitOrder()">
+            شراء
+          </button>
+        </form>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="Home.html">الرئيسية</a></li>
+          <li><a href="AboutUs.html">من نحن</a></li>
+          <li><a href="Appliances.html" class="current">المنتجات</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <script src="attached/myFunctions.js"></script>
+  </body>
+</html>
